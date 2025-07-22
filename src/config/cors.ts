@@ -1,9 +1,6 @@
 import { CorsOptions } from 'cors'
 
-const whiteList = [
-  process.env.FRONTEND_URL,            // https://deploy-devtree-frontend.netlify.app
-  'http://localhost:5173',             // Desarrollo local
-]
+const whiteList = process.env.FRONTEND_URL?.split(',') || []
 
 export const corsConfig: CorsOptions = {
   origin: function (origin, callback) {
